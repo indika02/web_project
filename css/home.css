@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Poppins:wght@300&family=Raleway&family=Rubik&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+#topnav{
+    font-size: 14px;
+    padding-right: 100px;
+    color: white;
+    font-weight: bold;
+
+ }

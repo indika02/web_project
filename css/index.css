@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Poppins:wght@300&family=Raleway&family=Rubik&display=swap');
+
+#logo{
+    width:100%;
+    height:90px;
+    max-width: 240px;
+    align-items:center;
+}
+
+header nav{
+    text-align:center;
+}
+
+.nav-link {
+    color:white;
+    font-family: Poppins,sans-serif;
+    font-weight:1000;
+}
+
+#navbarDropdown{
+    color:white;
+    font-family: Poppins,sans-serif;
+    font-weight:1000;
+}
+
+.dropdown-menu{
+    background-color: rgb(69, 69, 69);
+    color:white;
+    font-family: Poppins,sans-serif;
+    font-weight:1000;
+}
+
+.dropdown-item{
+    color:white;
+    font-family: Poppins,sans-serif;
+    font-weight:1000;
+}
+
+.dropdown-item:hover{
+    background-color:white;
+}
+
+#navbarnav{
+    float:center;
+}
+
+main #mimage{
+    width:100%;
+    max-height: 300px;
+    max-width:100%;
+    height:100%;
+}
+
+.contain {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .center {
+    font-family: Poppins,sans-serif;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight:Bold;
+    font-size: 40px;
+    color: rgb(21, 21, 16);
+  }
+
+  .contain #btnlogin {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    font-family: Poppins,sans-serif;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: rgb(12, 6, 61);
+    font-weight:Bold;
+    font-size: 18px;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 49px;
+    text-align: center;
+  }
+  
+  .contain #btnlogin:hover {
+    background-color: rgb(255, 255, 0);
+  }
+  
+
+.row .col #stream{
+    width:100%;
+    max-width:250px;
+    height:100%;
+    max-height: 170px;
+}
+
