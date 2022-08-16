@@ -9,5 +9,10 @@
     padding-right: 100px;
     color: white;
     font-weight: bold;
+    background-color: grey;
 
  }
+
+header .dropdown-menu{
+    background-color: #495057;
+}
