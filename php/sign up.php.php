@@ -74,6 +74,7 @@ session_start();
                     <input type="password" name="pwd" class="form-control">
                 </div>
                 <button class="btn btn-class" name="submit" onClick="clearform();">Login</button>
+                <button class="btn btn-danger" name="submit;"style="float: right"><a class="logout" href="index.html"  style="text-decoration: none;color: white;">Cancel</button>
                 <br>
             </form>
         </div>

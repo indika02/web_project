@@ -15,17 +15,19 @@ if(isset($_POST['submit'])){
 
 
     if (!$conn) {
-        echo 'error';
+
     }else{
-        echo 'connected';
+
         $query = "INSERT INTO student (id,name,address,telno,email,g_name,g_telno) VALUES ('$id','$name','$address','$telno','$email','$g_name','$g_telno')";
 
         if (mysqli_query($conn,$query)){
 
         }
     }
+
     header('Location:home.php');
 }
 
 
 ?>
+
