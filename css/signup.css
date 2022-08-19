@@ -43,16 +43,6 @@ body{
 
 }
 
-.btn-class{
-    border-color: #00ac96;
-    color:#00ac96;
-    background: #3F71EA;
-}
-
-.btn-class:hover{
-    background-color: #00ac96;
-    color:#fff;
-}
 
 
 form .error{
