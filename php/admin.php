@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title></title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -64,11 +64,11 @@ if(isset($_POST['submit'])){
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h4>ADMIN Dashboard</h4>
+            <h4><?php echo"{$_SESSION['name']}"?></h4>
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
+
 
             <li>
                 <a href="./admin.php">Home</a>
@@ -77,10 +77,10 @@ if(isset($_POST['submit'])){
                 <a href="./registration.php">Registration</a>
             </li>
             <li>
-                <a href="#">Timetable</a>
+                <a href="./timetable.php">Timetable</a>
             </li>
             <li>
-                <a href="#">Calculation</a>
+                <a href="./calculation.php">Calculation</a>
             </li>
         </ul>
 
@@ -89,20 +89,11 @@ if(isset($_POST['submit'])){
 
     <!-- Page Content  -->
     <div id="content">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-
-            </div>
-        </nav>
+        <button type="button" id="sidebarCollapse" class="btn btn-secondary">
+            <i class="fas fa-align-justify"></i>
+        </button>
+        <button class="btn btn-dark" style="float:right;"><a href="./sign up.php.php">LOGOUT</a></button>
+        <div class="mod" style="padding-top: 20px">
         <caption><p style="font-size: 30px;text-align: center;">Student Information</p></caption>
         <table class="table table-border" style="padding-bottom: 500px">
 

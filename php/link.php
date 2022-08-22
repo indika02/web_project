@@ -7,5 +7,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/home.css">
+ <a href="https://www.flaticon.com/uicons"></a>
 <script src="../js/index.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

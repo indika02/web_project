@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Inter:wght@300&family=Poppins:wght@300&family=Raleway&family=Rubik&display=swap');
+
+#topic{
+    text-align: center;
+    font-size: 45px;
+}
+
+.row{
+    padding-top: 45px;
+}
+.col{
+    padding-right: 25px;
+    padding-top: 34px;
+}
+.card{
+    box-shadow: 5px 10px #888888;
+}
+
+.card-img-top{
+    border-radius: 300px;
+}
+i{
+
+}
