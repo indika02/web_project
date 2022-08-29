@@ -28,17 +28,18 @@ include_once ('link.php');
                     <a class="nav-link" style="color:#080c33;" href="./index.html">HOME<span class="sr-only">(current)</span></a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" style="color:#080c33;" href="team.php">LECTURES</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" style="color:#080c33" href="#section1">ABOUT US</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color:#080c33" href="./notices.php">TIMETABLE</a>
+                    <a class="nav-link" style="color:#080c33;" href="team.php">LECTURES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color:#080c33" href="#">CONTACT US</a>
+                    <a class="nav-link" style="color:#080c33" href="./notices.php">NOTICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#080c33" href="./contact.php">CONTACT US</a>
                 </li>
 
                 <li class="nav-item">
@@ -49,8 +50,9 @@ include_once ('link.php');
         </div>
     </nav>
 </header>
-<div class="container">
-    <h2 id="topic">Our Team</h2>
+<body style="background-color: #e3dfdf">
+<div class="container" >
+    <h2 id="topic"style="color: #080c33">Our Team</h2>
     <h3>Art Stream</h3>
         <div class="row">
 

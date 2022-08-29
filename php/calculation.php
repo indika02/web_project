@@ -1,7 +1,7 @@
 <?php
 include_once ('db_connect.php');
 include_once ('link.php');
-
+include_once ('stdreg.php');
 include_once ('delete.php');
 
 session_start();
@@ -59,9 +59,9 @@ if(isset($_POST['submit'])){
 
 <div class="wrapper">
     <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h4><?php echo"{$_SESSION['name']}"?></h4>
+    <nav id="sidebar" style="background-color: #080c33">
+        <div class="sidebar-header" style="background-color: #3F71EA">
+            <h4>VISION</h4>
         </div>
 
         <ul class="list-unstyled components">
@@ -77,7 +77,10 @@ if(isset($_POST['submit'])){
                 <a href="./timetable.php">Timetable</a>
             </li>
             <li>
-                <a href="./calculation.php">Calculation</a>
+                <a href="./calculation.php">Class</a>
+            </li>
+            <li>
+                <a href="./comments.php">Comments</a>
             </li>
         </ul>
 
@@ -89,7 +92,6 @@ if(isset($_POST['submit'])){
         <button type="button" id="sidebarCollapse" class="btn btn-secondary">
             <i class="fas fa-align-justify"></i>
         </button>
-        <button class="btn btn-dark" style="float:right;"><a href="./sign up.php.php">LOGOUT</a></button>
         <div class="mod" style="padding-top: 20px">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right">
                 <i class="fas fa fa-plus"></i> Add class
@@ -122,18 +124,16 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float:left">Cancel</button>
                                 <input type="submit" class="btn btn-primary"name="submit" value="submit"  style="float:right"></input>
-
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
             <caption><p style="font-size: 30px;text-align: center;">Class</p></caption>
 
-            <table class="table table-border">
+            <table class="table table-bordered">
                 <thead>
-                <tr style="font-size: 15px;">
+                <tr style="font-size: 12px;">
                     <th scope="col">ID</th>
                     <th scope="col">Class</th>
                     <th scope="col">Lecturer</th>
@@ -148,14 +148,14 @@ if(isset($_POST['submit'])){
 
                 while($row=$query->fetch_assoc()){
                     ?>
-                    <tr style="font-size: 15px;" >
+                    <tr style="font-size: 13px;" >
                         <td><?php echo $row['class_id'];?></td>
                         <td><?php echo $row['class'];?></td>
                         <td><?php echo $row['lecturer'];?></td>
 
                         <form action="delete.php" method="post">
                             <input type="hidden" name="class_id" value="<?php echo $row ['class_id']?>">
-                            <td scope="col"><input type="submit" name="delete" class="btn btn-danger" value="DELETE"> </td>
+                            <td scope="col"><input type="submit" name="delete" class="btn btn-danger" value="DELETE" style="font-size: 13px;height: 30px"> </td>
                         </form>
                     </tr>
                     <?php
@@ -164,48 +164,72 @@ if(isset($_POST['submit'])){
                 </tbody>
             </table>
         </div>
-        <hr>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" style="float: right">
-            <i class="fas fa fa-plus"></i> Add class
+            <i class="fas fa fa-plus"></i> Register Student For Class
         </button>
         <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add the Class</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Register Students for Classes</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
 
-                        <form action=".php" method="post" style="font-size: 13px;">
+                        <form action="stdreg.php" method="post" style="font-size: 13px;">
                             <div class="form-group row">
-                                <label for="inputid" class="col-sm-2 col-form-label" >Class</label>
+                                <label for="inputid" class="col-sm-2 col-form-label" >Student ID</label>
                                 <div class="col-sm-10">
-                                    <input type="text"class="form-control" name="class" required ></input>
+                                    <input type="text"class="form-control" name="std_id" required ></input>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputid" class="col-sm-2 col-form-label" >Class</label>
+                                <label for="inputname" class="col-sm-2 col-form-label">Class ID</label>
                                 <div class="col-sm-10">
-                                    <input type="text"class="form-control" name="class" required ></input>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputid" class="col-sm-2 col-form-label" >Class</label>
-                                <div class="col-sm-10">
-                                    <input type="text"class="form-control" name="class" required ></input>
+                                    <input type="text"class="form-control" name="c_id" required></input>
                                 </div>
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float:left">Cancel</button>
-                            <input type="submit" class="btn btn-primary"name="submit" value="submit"  style="float:right"></input>
+                            <input type="submit" class="btn btn-primary"name="enroll" value="submit"  style="float:right"></input>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
+
+
+<!--        <caption><p style="font-size: 30px;text-align: center;">Students of the class</p></caption>-->
+<!---->
+<!--        <table class="table table-bordered">-->
+<!--            <thead>-->
+<!--            <tr style="font-size: 15px;">-->
+<!--                <th scope="col">ID</th>-->
+<!--                <th scope="col">Class</th>-->
+<!--                <th scope="col">Lecturer</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            --><?php
+//
+//            $sql="SELECT id,name,";
+//            $query=$conn->query($sql);
+//
+//            while($row=$query->fetch_assoc()){
+//                ?>
+<!--                <tr style="font-size: 15px;" >-->
+<!--                    <td>--><?php //echo $row['class_id'];?><!--</td>-->
+<!--                    <td>--><?php //echo $row['class'];?><!--</td>-->
+<!--                    <td>--><?php //echo $row['lecturer'];?><!--</td>-->
+<!--                </tr>-->
+<!--                --><?php
+//            }
+//            ?>
+<!--            </tbody>-->
+<!--        </table>-->
+</div>
+</body>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -63,8 +63,8 @@ if(isset($_POST['submit'])){
 
 <div class="wrapper">
     <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
+    <nav id="sidebar" style="background-color: #080c33">
+        <div class="sidebar-header" style="background-color: #3F71EA">
             <h4><?php echo"{$_SESSION['name']}"?></h4>
         </div>
 
@@ -81,7 +81,10 @@ if(isset($_POST['submit'])){
                 <a href="./timetable.php">Timetable</a>
             </li>
             <li>
-                <a href="./calculation.php">Calculation</a>
+                <a href="./calculation.php">Class</a>
+            </li>
+            <li>
+                <a href="./comments.php">Comments</a>
             </li>
         </ul>
 
@@ -165,7 +168,7 @@ if(isset($_POST['submit'])){
         </div>
         <caption><p style="font-size: 30px;text-align: center;">Student Information</p></caption>
 
-        <table class="table table-border">
+        <table class="table table-bordered">
             <thead>
             <tr style="font-size: 15px;">
                 <th scope="col">Enrollment No</th>

@@ -34,6 +34,21 @@ if(isset($_POST['submit'])){
 
 
 ?>
+<?php
+if (isset($_POST['delete'])){
+    $t_id=$_POST['t_id'];
+
+    $query="DELETE FROM timetable WHERE t_id='$t_id'";
+    $query_run=mysqli_query($conn,$query);
+
+    if ($query_run){
+        echo '<script> alert("Data Deleted");</script>';
+        header("Location:timetable.php");
+    }else{
+        echo '<script> alert("Data not Deleted");</script>';
+    }
+}
+?>
 
 
 <!DOCTYPE html>
@@ -63,8 +78,8 @@ if(isset($_POST['submit'])){
 
 <div class="wrapper">
     <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
+    <nav id="sidebar" style="background-color: #080c33">
+        <div class="sidebar-header" style="background-color: #3F71EA">
             <h4><?php echo"{$_SESSION['name']}"?></h4>
         </div>
 
@@ -81,7 +96,10 @@ if(isset($_POST['submit'])){
                 <a href="#">Timetable</a>
             </li>
             <li>
-                <a href="./calculation.php">Calculation</a>
+                <a href="./calculation.php">Class</a>
+            </li>
+            <li>
+                <a href="./comments.php">Comments</a>
             </li>
         </ul>
 
@@ -98,7 +116,7 @@ if(isset($_POST['submit'])){
 
             <caption><p style="font-size: 30px;text-align: center;">Class</p></caption>
 
-            <table class="table table-border">
+            <table class="table table-bordered">
                 <thead>
                 <tr style="font-size: 15px;">
                     <th scope="col">ID</th>
@@ -129,7 +147,7 @@ if(isset($_POST['submit'])){
             <caption><p style="font-size: 30px;text-align: center;">Timetable</p></caption>
             <div class="mod" style="padding-top: 20px">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right">
-                    <i class="fas fa fa-plus"></i> Enroll student
+                    <i class="fas fa fa-plus"></i> UPDATE
                 </button>
 
                 <!-- Modal -->
@@ -197,7 +215,7 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
 
-                <table class="table table-border" style="padding-top: 50px">
+                <table class="table table-bordered" style="padding-top: 50px">
                     <thead>
                     <tr style="font-size: 15px;">
                         <th scope="col">ID</th>
@@ -207,13 +225,14 @@ if(isset($_POST['submit'])){
                         <th scope="col">From</th>
                         <th scope="col">To</th>
                         <th scope="col">Venue</th>
+                        <th scope="col">Action</th>
 
 
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-//                   lect t_id,class.class,class.lecturer,timedate,timefrom,timeto,venue,sec_id FROM timetable,class WHERE t_id=$t_id AND class.class_id=$class_id");
+//                lect t_id,class.class,class.lecturer,timedate,timefrom,timeto,venue,sec_id FROM timetable,class WHERE t_id=$t_id AND class.class_id=$class_id");
 $sql="select * From timetable";
                     $query=$conn->query($sql);
 

@@ -6,7 +6,6 @@ require_once ('db_connect.php');
 <?php
 session_start();
 ?>
-?>
 <?php
     if(isset($_POST['submit'])){
 
@@ -47,7 +46,7 @@ session_start();
 <head>
     <link rel="stylesheet" href="../css/signup.css">
 </head>
-<body>
+<body style="background-color: #080c33">
 <div class="container">
     <div class="row content">
 
