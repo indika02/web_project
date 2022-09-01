@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
                 <a class="dropdown-item" href="./settings.php">Password Reset</a>
                 <a class="dropdown-item" href="./new%20admin.php">Add New Admin</a>
 
-                <a class="dropdown-item" href="./sign%20up.php.php">Logout</a>
+                <a class="dropdown-item" href="./sign%20up.php">Logout</a>
             </div>
         </div>
         <div class="mod" style="padding-top: 60px">

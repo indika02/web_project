@@ -1,3 +1,30 @@
+<?php
+include_once ('db_connect.php');
+?>
+
+<?php
+if(isset($_POST['submit'])){
+    $email=$_POST['email'];
+    $pwd=$_POST['pwd'];
+    $encrypted_pwd = sha1($pwd);
+
+    $conn=mysqli_connect("localhost","root","","system");
+
+
+    if (!$conn){
+        echo "Erro occured";
+    }else{
+
+        $query = "UPDATE users SET password = '.$encrypted_pwd.'WHERE email = '.$email.'";
+        if (mysqli_query($conn,$query)){
+
+        }
+        header('Location:./sign up.php.php');
+    }
+}
+
+
+?>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
@@ -109,7 +136,7 @@
 
 <body>
 <div class="container">
-    <form class="form-horizontal" id="validateForm" style="width: 700px">
+    <form class="form-horizontal" id="validateForm" style="width: 700px" action="settings.php" method="post">
         <h1>Reset Your Password</h1>
         <fieldset>
             <!-- Email input-->
@@ -118,7 +145,7 @@
                     Enter Your Email:
                 </label>
                 <div class="col-md-12">
-                    <input id="email" name="textinput"
+                    <input id="email" name="email"
                            type="email" autocomplete="off"
                            placeholder="Enter your email address"
                            class="form-control input-md">
@@ -180,14 +207,13 @@
             <!-- Button -->
 
             <div class="form-group">
-                <a href="#" class="btn login-btn btn-block">
+                <button type="submit" id="submit" name="submit" class="btn login-btn btn-block">
                     Save
-                </a>
-                <a href="./admin.php" class="btn cancel-btn btn-block">
+                </button>
+                <button type="reset" class="btn cancel-btn btn-block">
                     Cancel
-                </a>
+                </button>
             </div>
-
         </fieldset>
     </form>
 </div>

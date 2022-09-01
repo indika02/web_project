@@ -1,6 +1,47 @@
+<?php
+include_once ('db_connect.php');
+?>
+
+<?php
+if(isset($_POST['submit'])){
+$name=$_POST['name'];
+$email=$_POST['email'];
+$uname=$_POST['uname'];
+$pwd=$_POST['pwd'];
+$encrypted_pwd = sha1($pwd);
+
+$conn=mysqli_connect("localhost","root","","system");
+
+
+if (!$conn){
+echo "Erro occured";
+}else{
+
+$query = "INSERT INTO users(id,name,email,username,password) VALUES (DEFAULT,'$name','$email','$uname','$encrypted_pwd')";
+if (mysqli_query($conn,$query)){
+
+}
+    header('Location:./sign up.php.php');
+}
+}
+
+
+?>
+
+
+
+
+
+
+
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
+
+    <script>
+
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Poppins:wght@300&family=Raleway&family=Rubik&display=swap');
 
@@ -10,22 +51,19 @@
         .container{
             background-color: #080c33;
         }
-        h1{
+        h4{
             margin: 15px 0 25px;
             text-align: center;
-            font-size: 30px;
+            font-size: 20px;
             color: #1c2286;
         }
-        input{
-            color:#022255 !important;
+        input[type=email],input[type=password],input[type=text]{
             border: none;
+            border-bottom: 1px solid blue;
+            border-radius: 0;
+            background-color: white;
         }
-        input[type=email]:focus,
-        input[type=password]:focus,
-        input[type=text]:focus{
-            box-shadow: 0 0 5px rgb(26, 35, 185);
 
-        }
         .container{
             width: 100%;
             height: 100vh;
@@ -109,17 +147,18 @@
 
 <body>
 <div class="container">
-    <form class="form-horizontal" id="validateForm" style="width: 700px">
-        <h1>Register a New Administrator</h1>
+    <form class="form-horizontal" id="validateForm" style="width: 500px" action="new%20admin.php" method="post">
+        <div class="user" style="padding-left: 170px;border-radius: 10px"> <img src="../img/247-2472278_admin-admin-icon-png-transparent-png.png" style="width: 100%;max-width: 80px;height: 100px;"></div>
+        <h4>Register a New Administrator</h4>
         <fieldset>
             <div class="form-group">
                 <label class="col-md-12 control-label" for="textinput">
                     Enter your Name:
                 </label>
                 <div class="col-md-12">
-                    <input id="email" name="textinput"
+                    <input id="email" name="name"
                            type="text" autocomplete="off"
-                           placeholder="Enter your email address"
+
                            class="form-control input-md">
                 </div>
             </div>
@@ -130,9 +169,9 @@
                    Enter Your Email:
                 </label>
                 <div class="col-md-12">
-                    <input id="email" name="textinput"
+                    <input id="email" name="email"
                            type="email" autocomplete="off"
-                           placeholder="Enter your email address"
+
                            class="form-control input-md">
                 </div>
             </div>
@@ -141,9 +180,9 @@
                     Enter your Username:
                 </label>
                 <div class="col-md-12">
-                    <input id="email" name="textinput"
+                    <input id="email" name="uname"
                            type="text" autocomplete="off"
-                           placeholder="Enter your email address"
+
                            class="form-control input-md">
                 </div>
             </div>
@@ -155,10 +194,9 @@
                 </label>
                 <div class="col-md-12">
                     <input id="password" class="form-control input-md"
-                           name="password" type="password"
-                           placeholder="Enter your password" >
-                    <span class="show-pass" onclick="toggle()">
-                            <i class="far fa-eye" style="padding-top:9px" onclick="myFunction(this)"></i>
+                           name="password" type="password"style="width: 425px;">
+                    <span class="show-pass" onclick="toggle()" >
+<i class="far fa-eye" style="padding-top:9px" onclick="myFunction(this)"></i>
                         </span>
                     <div id="popover-password">
                         <p><span id="result"></span></p>
@@ -204,12 +242,12 @@
             <!-- Button -->
 
             <div class="form-group">
-                <a href="#" class="btn login-btn btn-block">
+                <button type="submit" id="submit" name="submit" class="btn login-btn btn-block">
                     Save
-                </a>
-                <a href="./admin.php" class="btn cancel-btn btn-block">
+                </button>
+                <button type="reset" class="btn cancel-btn btn-block">
                     Cancel
-                </a>
+                </button>
             </div>
 
         </fieldset>
